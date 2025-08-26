@@ -1,87 +1,390 @@
-async function testOllama() {
-    console.log('Testing Ollama connection...');
-
-    try {
-        const response = await fetch('http://localhost:11434/api/tags');
-        const data = await response.json();
-        console.log('Available models:', data.models);
-
-        // Check if gemma3n:e4b is available
-        const hasModel = data.models.some(m => m.name.includes('gemma3n'));
-        if (hasModel) {
-            console.log('✅ Gemma model found!');
-            document.getElementById('results').innerHTML =
-                '<p style="color: green">✅ Model ready!</p>';
-        } else {
-            console.log('❌ Model not found, pull it with: ollama pull gemma3n:e4b');
-        }
-    } catch (error) {
-        console.error('Cannot connect to Ollama:', error);
-        document.getElementById('results').innerHTML =
-            '<p style="color: red">❌ Cannot connect to Ollama. Is it running?</p>';
-    }
-}
-
-
-async function analyzeImage(imageBase64) {
-
-    const prompt = `Analyze this image for privacy concerns. 
-    Look for: faces, documents, text, personal information.
-    Return a simple JSON with:
-    {
-        "has_faces": true/false,
-        "has_text": true/false,
-        "privacy_risk": "low/medium/high",
-        "description": "briefly explain what you found"
-    }`;
-
-    const response = await fetch('http://localhost:11434/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            model: 'gemma3n:e4b',
-            prompt: prompt,
-            images: [imageBase64.split(',')[1]], // Remove data:image prefix
-            format: 'json',
-            stream: false
-        })
-    });
-
-    const data = await response.json();
-    return JSON.parse(data.response);
-}
-
-// Wire up the file input
-document.getElementById('file-input').addEventListener('change', (e) => {
-    const file = e.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            // Display the image
-            document.getElementById('results').innerHTML =
-                `<img src="${e.target.result}" style="max-width: 300px">`;
-
-            // Store for analysis
-            window.currentImage = e.target.result;
+// app.js - Full Gallery Implementation (Vanilla JS)
+class PrivacyGallery {
+    constructor() {
+        this.state = {
+            photos: [],
+            analyzing: false,
+            currentAnalysis: '',
+            privacyMode: 'auto', // auto, show-all, hide-all
+            stats: {
+                total: 0,
+                highRisk: 0,
+                protected: 0
+            }
         };
-        reader.readAsDataURL(file);
+        this.container = null;
     }
-});
 
-document.getElementById('analyze-btn').addEventListener('click', async () => {
-    if (window.currentImage) {
-        document.getElementById('results').innerHTML +=
-            '<p>🔍 Analyzing...</p>';
+    mount(selector) {
+        this.container = document.querySelector(selector);
+        this.attachEventListeners();
+        this.render();
+    }
+
+    setState(newState) {
+        Object.assign(this.state, newState);
+        this.render();
+    }
+
+    async handleFiles(event) {
+        const files = Array.from(event.target.files);
+
+        for (const file of files) {
+            const reader = new FileReader();
+
+            reader.onload = async (e) => {
+                const photo = {
+                    id: Date.now() + Math.random(),
+                    src: e.target.result,
+                    name: file.name,
+                    analysis: null,
+                    protected: false,
+                    loading: true
+                };
+
+                // Add to gallery immediately
+                this.setState({ photos: [...this.state.photos, photo] });
+
+                // Analyze in background
+                await this.analyzePhoto(photo);
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+
+    async analyzePhoto(photo) {
+        this.setState({
+            analyzing: true,
+            currentAnalysis: `Analyzing ${photo.name}...`
+        });
 
         try {
-            const analysis = await analyzeImage(window.currentImage);
-            document.getElementById('results').innerHTML +=
-                `<pre>${JSON.stringify(analysis, null, 2)}</pre>`;
+            const prompt = `Analyze this image for privacy risks. Check for:
+            - Faces (count them, note if children)
+            - Documents (IDs, cards, medical, financial)
+            - Personal text (names, addresses, emails, phones)
+            - Location markers (signs, landmarks, buildings)
+            - Screens with private data
+            - Sensitive contexts (medical, intimate)
+            
+            Score 1-5: 1=no risk, 3=faces/partial info, 5=critical (children/sensitive docs)
+            
+            Return ONLY this JSON:
+            {
+                "privacy_score": <1-5>,
+                "faces_count": <number>,
+                "has_documents": <true/false>,
+                "has_personal_text": <true/false>,
+                "has_location": <true/false>,
+                "has_children": <true/false>,
+                "risks": ["<specific risk seen>"],
+                "risk_level": "<low|medium|high|critical>",
+                "action": "<safe|blur_faces|blur_all|encrypt>",
+                "explanation": "<one sentence describing what you see>"
+            }`;
+
+
+            // Create abort controller for this request
+            window.abortController = new AbortController();
+            
+            const response = await fetch('http://localhost:11434/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                signal: window.abortController.signal,
+                body: JSON.stringify({
+                    model: 'qwen2.5vl:7b',
+                    prompt: prompt,
+                    images: [photo.src.split(',')[1]],
+                    format: 'json',
+                    stream: false,
+                    options: {
+                        temperature: 0.1,
+                        num_predict: 200
+                    }
+                })
+            });
+
+            const data = await response.json();
+            const analysis = JSON.parse(data.response);
+
+            const updatedPhotos = this.state.photos.map(p => {
+                if (p.id === photo.id) {
+                    return { ...p, analysis, loading: false, protected: analysis.privacy_score >= 2 };
+                }
+                return p;
+            });
+
+            const stats = this.calculateStats(updatedPhotos);
+
+            this.setState({
+                photos: updatedPhotos,
+                stats,
+                analyzing: false,
+                currentAnalysis: ''
+            });
+
         } catch (error) {
             console.error('Analysis failed:', error);
+            const updatedPhotos = this.state.photos.map(p => {
+                if (p.id === photo.id) {
+                    return { ...p, loading: false, analysis: { risk_level: 'error', explanation: 'Analysis failed' } };
+                }
+                return p;
+            });
+            const stats = this.calculateStats(updatedPhotos);
+            this.setState({
+                photos: updatedPhotos,
+                stats,
+                analyzing: false
+            });
         }
     }
-});
 
-// Test on page load
-window.onload = testOllama;
+    calculateStats(photos) {
+        return {
+            total: photos.length,
+            highRisk: photos.filter(p =>
+                p.analysis?.privacy_score >= 4).length,
+            protected: photos.filter(p => p.protected).length
+        };
+    }
+
+    toggleProtection(photoId) {
+        const updatedPhotos = this.state.photos.map(p => {
+            if (p.id == photoId) {
+                return { ...p, protected: !p.protected };
+            }
+            return p;
+        });
+        const stats = this.calculateStats(updatedPhotos);
+        this.setState({ photos: updatedPhotos, stats });
+    }
+
+    shouldBlur(photo) {
+        if (!photo.analysis) return false;
+
+        switch (this.state.privacyMode) {
+            case 'show-all':
+                return false;
+            case 'hide-all':
+                return photo.analysis.privacy_score >= 2;
+            case 'auto':
+            default:
+                return photo.protected;
+        }
+    }
+
+    getRiskColor(riskLevel) {
+        const colors = {
+            low: '#4CAF50',
+            medium: '#FF9800',
+            high: '#FF5722',
+            critical: '#F44336'
+        };
+        return colors[riskLevel] || '#9E9E9E';
+    }
+
+    async exportSafeVersion(photoId) {
+        const photo = this.state.photos.find(p => p.id == photoId);
+        if (!photo) return;
+
+        // Apply blur and download
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+
+        img.onload = () => {
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            if (photo.analysis.faces_count > 0) {
+                ctx.filter = 'blur(15px)';
+            }
+
+            ctx.drawImage(img, 0, 0);
+
+            // Download
+            const link = document.createElement('a');
+            link.download = `safe_${photo.name}`;
+            link.href = canvas.toDataURL();
+            link.click();
+        };
+
+        img.src = photo.src;
+    }
+
+    attachEventListeners() {
+        this.container.addEventListener('change', (e) => {
+            if (e.target.id === 'file-input') {
+                this.handleFiles(e);
+            }
+        });
+
+        this.container.addEventListener('click', (e) => {
+            // Privacy mode buttons
+            const privacyButton = e.target.closest('.privacy-modes button');
+            if (privacyButton) {
+                const modes = ['auto', 'show-all', 'hide-all'];
+                const index = Array.from(privacyButton.parentElement.children).indexOf(privacyButton);
+                this.setState({ privacyMode: modes[index] });
+                return;
+            }
+
+            // Protection toggle buttons
+            const protectButton = e.target.closest('.protect-btn');
+            if (protectButton) {
+                const photoCard = protectButton.closest('.photo-card');
+                const photoId = photoCard.dataset.photoId;
+                if (photoId) {
+                    this.toggleProtection(photoId);
+                }
+                return;
+            }
+
+            // Export safe version buttons
+            const exportButton = e.target.closest('.export-safe-btn');
+            if (exportButton) {
+                const photoCard = exportButton.closest('.photo-card');
+                const photoId = photoCard.dataset.photoId;
+                if (photoId) {
+                    this.exportSafeVersion(photoId);
+                }
+                return;
+            }
+        });
+    }
+
+    render() {
+        if (!this.container) return;
+
+        this.container.innerHTML = `
+            <div class="privacy-gallery-container">
+                <!-- Header -->
+                <header class="header">
+                    <h1>🔒 Privacy Gallery</h1>
+                    <div class="stats-bar">
+                        <span>📸 ${this.state.stats.total} photos</span>
+                        <span>⚠️ ${this.state.stats.highRisk} high risk</span>
+                        <span>🛡️ ${this.state.stats.protected} protected</span>
+                    </div>
+                </header>
+
+                <!-- Controls -->
+                <div class="controls">
+                    <div class="upload-section">
+                        <input 
+                            type="file" 
+                            id="file-input"
+                            multiple 
+                            accept="image/*"
+                        />
+                        <label for="file-input" class="upload-btn">
+                            📷 Add Photos
+                        </label>
+                    </div>
+                    
+                    <div class="privacy-modes">
+                        <button class="${this.state.privacyMode === 'auto' ? 'active' : ''}">
+                            🤖 Auto
+                        </button>
+                        <button class="${this.state.privacyMode === 'show-all' ? 'active' : ''}">
+                            👁️ Show All
+                        </button>
+                        <button class="${this.state.privacyMode === 'hide-all' ? 'active' : ''}">
+                            🔒 Hide Sensitive
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Analysis Status -->
+                ${this.state.analyzing ? `
+                    <div class="analysis-status">
+                        🔍 ${this.state.currentAnalysis}
+                    </div>
+                ` : ''}
+
+                <!-- Gallery Grid -->
+                <div class="gallery-grid">
+                    ${this.state.photos.map(photo => this.renderPhotoCard(photo)).join('')}
+                </div>
+
+                <!-- Empty State -->
+                ${this.state.photos.length === 0 ? `
+                    <div class="empty-state">
+                        <p>📷 No photos yet. Add some photos to analyze their privacy risks!</p>
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }
+
+    renderPhotoCard(photo) {
+        const shouldBlur = this.shouldBlur(photo);
+        const riskColor = photo.analysis ?
+            this.getRiskColor(photo.analysis.risk_level) : '#ccc';
+
+        return `
+            <div class="photo-card ${shouldBlur ? 'blurred' : ''}" data-photo-id="${photo.id}">
+                <div class="photo-wrapper">
+                    <img src="${photo.src}" alt="${photo.name}" />
+                    
+                    ${photo.loading ? `
+                        <div class="loading-overlay">
+                            <div class="spinner"></div>
+                            Analyzing...
+                        </div>
+                    ` : ''}
+                    
+                    ${photo.analysis ? `
+                        <div class="privacy-badge" style="background: ${riskColor}">
+                            ${photo.analysis.privacy_score}/5
+                        </div>
+                        
+                        <div class="photo-controls">
+                            <button 
+                                class="protect-btn ${photo.protected ? 'active' : ''}"
+                                title="${photo.protected ? 'Unprotect' : 'Protect'}">
+                                ${photo.protected ? '🔒' : '🔓'}
+                            </button>
+                        </div>
+                    ` : ''}
+                </div>
+                
+                ${photo.analysis ? `
+                    <div class="photo-info">
+                        <div class="risk-level" style="color: ${riskColor}">
+                            ${photo.analysis.risk_level.toUpperCase()}
+                        </div>
+                        <div class="risk-details">
+                            ${photo.analysis.faces_count > 0 ? 
+                                `👤 ${photo.analysis.faces_count} face(s)` : ''}
+                            ${photo.analysis.has_documents ? '📄 Documents' : ''}
+                            ${photo.analysis.has_personal_text ? '📝 Personal text' : ''}
+                        </div>
+                        <div class="explanation">
+                            ${photo.analysis.explanation}
+                        </div>
+                        ${photo.analysis.privacy_score >= 3 ? `
+                            <button class="export-safe-btn">
+                                ↓ Export Safe Version
+                            </button>
+                        ` : ''}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }
+}
+
+// Initialize the app
+const app = new PrivacyGallery();
+app.mount('#app');
+
+// Cleanup on page unload
+window.addEventListener('beforeunload', () => {
+    // Cancel any ongoing fetch requests
+    if (window.abortController) {
+        window.abortController.abort();
+    }
+});

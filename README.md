@@ -29,5 +29,6 @@ Example Prompt Engineering:
       "privacy_score": 1-5,
       "detected_elements": [...],
       "risk_explanation": "...",
+      "description" : "...",
       "recommended_action": "blur|encrypt|safe"
     }
