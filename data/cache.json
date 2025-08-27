@@ -31,5 +31,149 @@
     "risk_level": "low",
     "action": "safe",
     "explanation": "The image shows a modern chair with a dark blue or teal color and a minimalist design. There are no faces, documents, personal text, location markers, or children present."
+  },
+  "privacy-gallery-cache-064e29854ed4ed80a6a1f86bc11db6452f3531b9168262f3d8e40648a6efcac8": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern bed with a wooden frame and a dark background. There are no faces, documents, personal text, location markers, or children present."
+  },
+  "privacy-gallery-cache-5dec8607f95a8705f6ba8b89f677237b07de2e0a7982a27b9886e471844ebdf5": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a dark, minimalist chair with a blurred background, indicating no privacy risks."
+  },
+  "privacy-gallery-cache-a0718e47bfe300758018bfc6d016486fe174b826a0d248712421511116a6ea3d": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern armchair with a dark background, and there are no visible faces, documents, personal text, location markers, or children."
+  },
+  "privacy-gallery-cache-5a2fb6e26e9ee8de162d6e6fadd0b1c0c94b00f9d8613f3e35ffa9c0b61c42a1": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a dark blue leather sofa against a dark background, with no visible faces, documents, personal text, location markers, or children."
+  },
+  "privacy-gallery-cache-af7c0164d397e0f52eb9b2ec0a7b9d216809df256223218dc481ed09d63ba821": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a single armchair with a dark background, and there are no visible faces, documents, personal text, location markers, or children present."
+  },
+  "privacy-gallery-cache-84652dcde2e5a2a41bd61e8172d8b2d4038be220e9ca17bc6393e963abf81a90": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a bed with a dark background, no faces, no documents, no personal text, no location markers, and no children. The bed is the main focus, and there are no signs of privacy risks."
+  },
+  "privacy-gallery-cache-cc8af7ad6dec51a5f1d78ca82cecd036e2d113ef7596b6dc165babcdfc942cff": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern chair with a dark background, no faces, documents, personal text, location markers, or children. The privacy score is low."
+  },
+  "privacy-gallery-cache-914153ec1d1c98e2778917d8867f98bf299ba88e081e704550ccf3c21ea3c412": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern armchair with a blue cushion and wooden armrests against a dark background. There are no faces, documents, personal text, location markers, or children present."
+  },
+  "privacy-gallery-cache-82689a7e6d8564a12a0360580d7c98d358f64e7697d125ac7a92717a238d03f2": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern bed with a wooden frame and a dark background. There are no faces, documents, personal text, location markers, or children visible."
+  },
+  "privacy-gallery-cache-a6111ad493e2259c017bd5dfc82e0dd5eb6b49e49e6b868e9e70bfbf1e7b1009": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a dark blue armchair against a dark background, with no visible faces, documents, personal text, location markers, or children. The image does not pose a privacy risk."
+  },
+  "privacy-gallery-cache-60083cefb3b7c91de860049deee1f9ae4c1d52b725ec9adaa1510d6d95760663": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern bed with a dark wooden frame and a black mattress. There are no visible faces, documents, personal text, location markers, or children in the image."
+  },
+  "privacy-gallery-cache-54ee0358f5e279f05459b751d922a286f2f61d487acb9d01b050f4b75329c5a0": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern armchair with a dark background, no faces, no documents, no personal text, no location markers, and no children. The privacy score is low."
+  },
+  "privacy-gallery-cache-9e14de664f78db1e5118add253e449f2da901467f0bbde7b8dacc9e1b48a207d": {
+    "privacy_score": 3,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": true,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "medium",
+    "action": "blur_all",
+    "explanation": "The image contains personal text such as names and addresses, which could be considered sensitive. Blurring all visible text is recommended to protect privacy."
   }
+
 }

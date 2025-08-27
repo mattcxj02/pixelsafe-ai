@@ -8,7 +8,7 @@ import json
 app = Flask(__name__, static_folder='app')
 CORS(app)
 
-
+IMAGE_DIR = 'data/pictures'
 CACHE_FILE = 'data/cache.json'
 in_memory_cache = {}
 
@@ -32,9 +32,6 @@ def save_cache():
 
 # Load the cache when the application starts
 load_cache()
-
-
-IMAGE_DIR = 'data/pictures'
 
 @app.route('/')
 def index():
@@ -67,7 +64,7 @@ def ollama_proxy(path):
                         json=request.json)
     return jsonify(resp.json())
 
-# --- Updated Cache Routes ---
+# cache endpoints
 @app.route('/cache/<image_hash>', methods=['GET'])
 def get_cache(image_hash):
     if image_hash in in_memory_cache:

@@ -140,8 +140,8 @@ class PrivacyGallery {
                 "has_location": <true/false>,
                 "has_children": <true/false>,
                 "risk_level": "<low|medium|high|critical>",
-                "action": "<safe|blur_faces|blur_all|encrypt>",
-                "explanation": "<one sentence describing what you see>"
+                "action": "<safe|blur_all|encrypt>",
+                "explanation": "<less than 30words describing what you see>"
             }`;
 
 
@@ -292,7 +292,7 @@ class PrivacyGallery {
         };
         return colors[riskLevel] || '#9E9E9E';
     }
-
+    /*
     async exportSafeVersion(photoId) {
         const photo = this.state.photos.find(p => p.id == photoId);
         if (!photo) return;
@@ -321,6 +321,7 @@ class PrivacyGallery {
 
         img.src = photo.src;
     }
+     */
 
     attachEventListeners() {
         this.container.addEventListener('change', (e) => {
@@ -349,7 +350,7 @@ class PrivacyGallery {
                 }
                 return;
             }
-
+            /*
             // Export safe version buttons
             const exportButton = e.target.closest('.export-safe-btn');
             if (exportButton) {
@@ -360,6 +361,7 @@ class PrivacyGallery {
                 }
                 return;
             }
+            */
         });
     }
 
@@ -473,11 +475,6 @@ class PrivacyGallery {
                         <div class="explanation">
                             ${photo.analysis.explanation}
                         </div>
-                        ${photo.analysis.privacy_score >= 3 ? `
-                            <button class="export-safe-btn">
-                                ↓ Export Safe Version
-                            </button>
-                        ` : ''}
                     </div>
                 ` : ''}
             </div>
