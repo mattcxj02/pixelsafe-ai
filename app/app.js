@@ -123,10 +123,10 @@ class PrivacyGallery {
 
             const prompt = `Analyze this image for privacy risks. Check for:
             - Faces (count them, note if children)
-            - Documents (IDs, cards, medical, financial)
+            - Documents (IDs, cards, medical, financial, license plate)
             - Personal text (names, addresses, emails, phones)
             - Location markers (signs, landmarks, buildings)
-            - Screens with private data
+            - Screens with private data (PDPA, work info)
             - Sensitive contexts (medical, intimate)
             
             Score 1-5: 1=no risk, 2-3= medium risk (faces/partial info/documents), 4-5=critical (children/sensitive docs i.e IDs, medical).
@@ -233,7 +233,7 @@ class PrivacyGallery {
     }
 
     // Add image resizing for faster processing
-    async resizeImage(base64Str, maxWidth = 800) {
+    async resizeImage(base64Str, maxWidth = 784) {
         return new Promise((resolve) => {
             const img = new Image();
             img.onload = () => {
