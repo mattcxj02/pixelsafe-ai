@@ -1,0 +1,35 @@
+{
+  "privacy-gallery-cache-048bb97ea18d3264981383e9914f67b3084a255015c14c8bfcb48ac9513b5449": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern armchair with a dark background, no faces, no documents, no personal text, no location markers, and no children."
+  },
+  "privacy-gallery-cache-0384270da48642259672d20c10b7a499b2bfd953676d41ab22ad74d853edf58a": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a blue sofa in a dark room with no visible faces, documents, personal text, location markers, or children. The privacy score is low."
+  },
+  "privacy-gallery-cache-2e7949f56d948d230ee4f496413ca9bf449e32737f9b3e110a85092f67b03f02": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location": false,
+    "has_children": false,
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern chair with a dark blue or teal color and a minimalist design. There are no faces, documents, personal text, location markers, or children present."
+  }
+}

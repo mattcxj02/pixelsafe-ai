@@ -19,6 +19,45 @@ class PrivacyGallery {
         this.container = document.querySelector(selector);
         this.attachEventListeners();
         this.render();
+        this.loadPreloadedImages();
+    }
+
+    async loadPreloadedImages() {
+        try {
+            const response = await fetch('/api/images');
+            if (!response.ok) {
+                console.error('Failed to load preloaded images.');
+                return;
+            }
+            const imageUrls = await response.json();
+
+            for (const imageUrl of imageUrls) {
+                const imageResponse = await fetch(`/images/${imageUrl}`);
+                const blob = await imageResponse.blob();
+                const reader = new FileReader();
+                
+                reader.onload = async (e) => {
+                    const photo = {
+                        id: Date.now() + Math.random(),
+                        src: e.target.result,
+                        name: imageUrl.split('/').pop(),
+                        analysis: null,
+                        protected: false,
+                        loading: true
+                    };
+
+                    // Add to gallery immediately
+                    this.setState({ photos: [...this.state.photos, photo] });
+
+                    // Analyze in background
+                    await this.analyzePhoto(photo);
+                };
+                
+                reader.readAsDataURL(blob);
+            }
+        } catch (error) {
+            console.error('Error loading preloaded images:', error);
+        }
     }
 
     setState(newState) {
@@ -117,7 +156,7 @@ class PrivacyGallery {
                 headers: { 'Content-Type': 'application/json' },
                 signal: window.abortController.signal,
                 body: JSON.stringify({
-                    model: 'qwen2.5vl:7b',
+                    model: 'qwen2.5vl:3b',
                     prompt: prompt,
                     images: [resizedImage.split(',')[1]],
                     format: 'json',
