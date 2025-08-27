@@ -68,7 +68,7 @@ class PrivacyGallery {
             - Screens with private data
             - Sensitive contexts (medical, intimate)
             
-            Score 1-5: 1=no risk, 3=faces/partial info, 5=critical (children/sensitive docs)
+            Score 1-5: 1=no risk, 2-3= medium risk (faces/partial info/documents), 4-5=critical (children/sensitive docs i.e IDs, medical).
             
             Return ONLY this JSON:
             {
@@ -78,7 +78,6 @@ class PrivacyGallery {
                 "has_personal_text": <true/false>,
                 "has_location": <true/false>,
                 "has_children": <true/false>,
-                "risks": ["<specific risk seen>"],
                 "risk_level": "<low|medium|high|critical>",
                 "action": "<safe|blur_faces|blur_all|encrypt>",
                 "explanation": "<one sentence describing what you see>"
