@@ -60,6 +60,28 @@ class PrivacyGallery {
         });
 
         try {
+            const photoId = await this.getPhotoId(photo);
+            
+            // Check cache on server
+            const cacheResponse = await fetch(`/cache/${photoId}`);
+            if (cacheResponse.ok) {
+                const analysis = await cacheResponse.json();
+                const updatedPhotos = this.state.photos.map(p => {
+                    if (p.id === photo.id) {
+                        return { ...p, analysis, loading: false, protected: analysis.privacy_score >= 2 };
+                    }
+                    return p;
+                });
+                const stats = this.calculateStats(updatedPhotos);
+                this.setState({
+                    photos: updatedPhotos,
+                    stats,
+                    analyzing: false,
+                    currentAnalysis: ''
+                });
+                return;
+            }
+
             const prompt = `Analyze this image for privacy risks. Check for:
             - Faces (count them, note if children)
             - Documents (IDs, cards, medical, financial)
@@ -86,6 +108,9 @@ class PrivacyGallery {
 
             // Create abort controller for this request
             window.abortController = new AbortController();
+
+            // Add image resizing for faster processing
+            const resizedImage = await this.resizeImage(photo.src);
             
             const response = await fetch('http://localhost:11434/api/generate', {
                 method: 'POST',
@@ -94,7 +119,7 @@ class PrivacyGallery {
                 body: JSON.stringify({
                     model: 'qwen2.5vl:7b',
                     prompt: prompt,
-                    images: [photo.src.split(',')[1]],
+                    images: [resizedImage.split(',')[1]],
                     format: 'json',
                     stream: false,
                     options: {
@@ -106,6 +131,13 @@ class PrivacyGallery {
 
             const data = await response.json();
             const analysis = JSON.parse(data.response);
+
+            // Cache the result on the server
+            await fetch(`/cache/${photoId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(analysis)
+            });
 
             const updatedPhotos = this.state.photos.map(p => {
                 if (p.id === photo.id) {
@@ -147,6 +179,44 @@ class PrivacyGallery {
                 p.analysis?.privacy_score >= 4).length,
             protected: photos.filter(p => p.protected).length
         };
+    }
+
+    async getPhotoId(photo) {
+        const hash = await this.sha256(photo.src.split(',')[1]); // Hash the base64 part
+        return `privacy-gallery-cache-${hash}`;
+    }
+
+    async sha256(str) {
+        const buf = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
+        return Array.from(new Uint8Array(buf))
+            .map(b => b.toString(16).padStart(2, '0'))
+            .join('');
+    }
+
+    // Add image resizing for faster processing
+    async resizeImage(base64Str, maxWidth = 800) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                let width = img.width;
+                let height = img.height;
+                
+                if (width > maxWidth) {
+                    height = (maxWidth / width) * height;
+                    width = maxWidth;
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                resolve(canvas.toDataURL('image/jpeg', 0.8));
+            };
+            img.src = base64Str;
+        });
     }
 
     toggleProtection(photoId) {

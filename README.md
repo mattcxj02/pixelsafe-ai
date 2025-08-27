@@ -4,7 +4,7 @@ AI Privacy Gallery
 
 Privacy Analysis Pipeline:
   1. Image Input →
-  2. Gemma-3N Analysis (single pass):
+  2. qwen2.5vl:7b Analysis (single pass):
      - Detects ALL sensitive elements
      - Explains WHY each is sensitive
      - Assigns privacy score
