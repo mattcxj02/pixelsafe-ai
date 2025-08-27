@@ -372,7 +372,7 @@ class PrivacyGallery {
             <div class="privacy-gallery-container">
                 <!-- Header -->
                 <header class="header">
-                    <h1>🔒 Privacy Gallery</h1>
+                    <h1>AI Privacy Gallery</h1>
                     <div class="stats-bar">
                         <span>📸 ${this.state.stats.total} photos</span>
                         <span>⚠️ ${this.state.stats.highRisk} high risk</span>
@@ -471,6 +471,8 @@ class PrivacyGallery {
                                 `👤 ${photo.analysis.faces_count} face(s)` : ''}
                             ${photo.analysis.has_documents ? '📄 Documents' : ''}
                             ${photo.analysis.has_personal_text ? '📝 Personal text' : ''}
+                            ${photo.analysis.has_location ? '📍 Location' : ''}
+                            ${photo.analysis.has_children ? '👶 Children' : ''}
                         </div>
                         <div class="explanation">
                             ${photo.analysis.explanation}
