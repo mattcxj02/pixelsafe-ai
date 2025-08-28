@@ -137,8 +137,9 @@ class PrivacyGallery {
                 "faces_count": <number>,
                 "has_documents": <true/false>,
                 "has_personal_text": <true/false>,
-                "has_location": <true/false>,
+                "has_location_data": <true/false>,
                 "has_children": <true/false>,
+                "bounding_boxes_faces": [<array of [x1,y1,x2,y2] coordinates> or empty],
                 "risk_level": "<low|medium|high|critical>",
                 "action": "<safe|blur_all|encrypt>",
                 "explanation": "<less than 30words describing what you see>"

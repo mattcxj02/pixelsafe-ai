@@ -164,17 +164,6 @@
     "action": "safe",
     "explanation": "The image shows a modern armchair with a dark background, no faces, no documents, no personal text, no location markers, and no children. The privacy score is low."
   },
-  "privacy-gallery-cache-9e14de664f78db1e5118add253e449f2da901467f0bbde7b8dacc9e1b48a207d": {
-    "privacy_score": 3,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": true,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "medium",
-    "action": "blur_all",
-    "explanation": "The image contains personal text such as names and addresses, which could be considered sensitive. Blurring all visible text is recommended to protect privacy."
-  },
   "privacy-gallery-cache-fcecc11c2c78004282db6c810858c0c31ef465e539429d451f78c741bf9cdc27": {
     "privacy_score": 1,
     "faces_count": 3,
@@ -182,19 +171,40 @@
     "has_personal_text": false,
     "has_location": false,
     "has_children": true,
+    "bounding_boxes_faces": [
+      [
+        264,
+        141,
+        402,
+        502
+      ],
+      [
+        367,
+        133,
+        759,
+        532
+      ],
+      [
+        408,
+        122,
+        657,
+        401
+      ]
+    ],
     "risk_level": "low",
     "action": "safe",
-    "explanation": "The image shows a happy family in a living room with no visible private documents, personal text, or location markers. The faces are not identifiable, and the family appears to be in a safe environment."
+    "explanation": "The image shows a happy family in a living room. There are no visible documents, personal text, or location markers. The faces are not blurred or encrypted, and there are no sensitive contexts or children involved in the image."
   },
   "privacy-gallery-cache-7ed0d3852e937f163aadb91e25aa319fab3659ab13bedcdc6718e2c2c5f43b15": {
     "privacy_score": 3,
     "faces_count": 0,
     "has_documents": true,
-    "has_personal_text": true,
+    "has_personal_text": false,
     "has_location": false,
     "has_children": false,
+    "bounding_boxes_faces": [],
     "risk_level": "medium",
     "action": "blur_all",
-    "explanation": "The image shows a driver's license with personal text and a blurred face. The license is a sensitive document containing personal information."
+    "explanation": "The image shows a driver's license with personal information blurred out. The license is a document that contains sensitive personal information. Blurring all the faces and personal text is necessary to protect privacy."
   }
 }
