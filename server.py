@@ -1,4 +1,4 @@
-# server.py
+# server.py (Backend for image viewer and Ollama proxy with caching)
 from flask import Flask, send_from_directory, request, jsonify, send_file
 from flask_cors import CORS
 import requests

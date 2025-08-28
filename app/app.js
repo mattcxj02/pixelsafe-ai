@@ -1,4 +1,4 @@
-// app.js - Full Gallery Implementation (Vanilla JS)
+// app.js - Full Gallery Implementation (Client Side Vanilla JS)
 class PrivacyGallery {
     constructor() {
         this.state = {
@@ -21,7 +21,7 @@ class PrivacyGallery {
         this.render();
         this.loadPreloadedImages();
     }
-
+    // Load preloaded images
     async loadPreloadedImages() {
         try {
             const response = await fetch('/api/images');
@@ -64,7 +64,7 @@ class PrivacyGallery {
         Object.assign(this.state, newState);
         this.render();
     }
-
+    // Handle file inputs
     async handleFiles(event) {
         const files = Array.from(event.target.files);
 
@@ -91,7 +91,7 @@ class PrivacyGallery {
             reader.readAsDataURL(file);
         }
     }
-
+    // Analyze a single photo for privacy risks using LLM via Ollama Local API
     async analyzePhoto(photo) {
         this.setState({
             analyzing: true,
@@ -221,6 +221,7 @@ class PrivacyGallery {
         };
     }
 
+    // Generate a unique ID for the photo based on its content from base64 encoding (hashing)
     async getPhotoId(photo) {
         const hash = await this.sha256(photo.src.split(',')[1]); // Hash the base64 part
         return `privacy-gallery-cache-${hash}`;
@@ -233,7 +234,8 @@ class PrivacyGallery {
             .join('');
     }
 
-    // Add image resizing for faster processing
+    // Add image resizing for faster processing qwen2.5vl uses multiple of 28 pixels therefore 28x28 = 784
+
     async resizeImage(base64Str, maxWidth = 784) {
         return new Promise((resolve) => {
             const img = new Image();
@@ -258,7 +260,7 @@ class PrivacyGallery {
             img.src = base64Str;
         });
     }
-
+    // toggle protection status of a photo
     toggleProtection(photoId) {
         const updatedPhotos = this.state.photos.map(p => {
             if (p.id == photoId) {
@@ -269,7 +271,7 @@ class PrivacyGallery {
         const stats = this.calculateStats(updatedPhotos);
         this.setState({ photos: updatedPhotos, stats });
     }
-
+    // Determine if photo should be blurred based on privacy mode and analysis if >= 2
     shouldBlur(photo) {
         if (!photo.analysis) return false;
 
@@ -283,7 +285,7 @@ class PrivacyGallery {
                 return photo.protected;
         }
     }
-
+    // Get color based on risk level
     getRiskColor(riskLevel) {
         const colors = {
             low: '#4CAF50',

@@ -196,7 +196,7 @@
     "explanation": "The image shows a happy family in a living room. There are no visible documents, personal text, or location markers. The faces are not blurred or encrypted, and there are no sensitive contexts or children involved in the image."
   },
   "privacy-gallery-cache-7ed0d3852e937f163aadb91e25aa319fab3659ab13bedcdc6718e2c2c5f43b15": {
-    "privacy_score": 3,
+    "privacy_score": 5,
     "faces_count": 0,
     "has_documents": true,
     "has_personal_text": false,
