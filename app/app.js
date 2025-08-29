@@ -13,6 +13,29 @@ class PrivacyGallery {
             }
         };
         this.container = null;
+        this.icons = this.initializeIcons();
+    }
+
+    // Initialize SVG icons
+    initializeIcons() {
+        return {
+            camera: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>`,
+            eye: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+            eyeOff: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>`,
+            shield: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>`,
+            lock: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><circle cx="12" cy="16" r="1"></circle><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>`,
+            unlock: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><circle cx="12" cy="16" r="1"></circle><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>`,
+            user: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
+            file: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14,2 14,8 20,8"></polyline></svg>`,
+            type: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>`,
+            mapPin: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
+            baby: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6l-3-9-3 9Z"></path><path d="M12 3c2.21 0 4 1.79 4 4 0 1.657-2 3-2 3s-2-1.343-2-3c0-2.21 1.79-4 4-4Z"></path><circle cx="12" cy="20" r="1"></circle><path d="M12 16s4-2 4-6"></path><path d="M12 16s-4-2-4-6"></path></svg>`,
+            car: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H8.5a1 1 0 0 0-.8.4L5 11l-5.16 1.86a1 1 0 0 0-.84.99V16h3m0 0a2 2 0 1 0 4 0m10 0a2 2 0 1 0 4 0"></path></svg>`,
+            robot: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2" ry="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>`,
+            search: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="M21 21l-4.35-4.35"></path></svg>`,
+            image: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21,15 16,10 5,21"></polyline></svg>`,
+            alertTriangle: `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`
+        };
     }
 
     mount(selector) {
@@ -31,23 +54,42 @@ class PrivacyGallery {
             }
             const imageUrls = await response.json();
 
-            for (const imageUrl of imageUrls) {
+            // Add skeleton placeholders immediately for better UX
+            const skeletonPhotos = imageUrls.map(() => ({
+                id: Date.now() + Math.random(),
+                src: null,
+                name: 'Loading...',
+                analysis: null,
+                protected: false,
+                loading: true,
+                skeleton: true
+            }));
+
+            this.setState({ photos: [...this.state.photos, ...skeletonPhotos] });
+
+            // Load images progressively
+            for (let i = 0; i < imageUrls.length; i++) {
+                const imageUrl = imageUrls[i];
                 const imageResponse = await fetch(`/images/${imageUrl}`);
                 const blob = await imageResponse.blob();
                 const reader = new FileReader();
                 
                 reader.onload = async (e) => {
                     const photo = {
-                        id: Date.now() + Math.random(),
+                        id: skeletonPhotos[i].id,
                         src: e.target.result,
                         name: imageUrl.split('/').pop(),
                         analysis: null,
                         protected: false,
-                        loading: true
+                        loading: true,
+                        skeleton: false
                     };
 
-                    // Add to gallery immediately
-                    this.setState({ photos: [...this.state.photos, photo] });
+                    // Update the skeleton with actual photo
+                    const updatedPhotos = this.state.photos.map(p => 
+                        p.id === photo.id ? photo : p
+                    );
+                    this.setState({ photos: updatedPhotos });
 
                     // Analyze in background
                     await this.analyzePhoto(photo);
@@ -95,7 +137,7 @@ class PrivacyGallery {
     async analyzePhoto(photo) {
         this.setState({
             analyzing: true,
-            currentAnalysis: `Analyzing ${photo.name}...`
+            currentAnalysis: `${this.icons.search} Analyzing ${photo.name}...`
         });
 
         try {
@@ -373,13 +415,20 @@ class PrivacyGallery {
 
         this.container.innerHTML = `
             <div class="privacy-gallery-container">
-                <!-- Header -->
+                <!-- Header with Logo -->
                 <header class="header">
-                    <h1>AI Privacy Gallery</h1>
+                    <div class="header-top">
+                        <div class="logo-container">
+                            <img src="/assets/privacy-gallery-logo.svg" alt="Privacy Gallery Logo" class="logo" />
+                        </div>
+                        <div class="header-text">
+                            <h1>AI Privacy Gallery</h1>
+                        </div>
+                    </div>
                     <div class="stats-bar">
-                        <span>📸 ${this.state.stats.total} photos</span>
-                        <span>⚠️ ${this.state.stats.highRisk} high risk</span>
-                        <span>🛡️ ${this.state.stats.protected} protected</span>
+                        <span>${this.icons.image} ${this.state.stats.total} photos</span>
+                        <span>${this.icons.alertTriangle} ${this.state.stats.highRisk} high risk</span>
+                        <span>${this.icons.shield} ${this.state.stats.protected} protected</span>
                     </div>
                 </header>
 
@@ -393,19 +442,19 @@ class PrivacyGallery {
                             accept="image/*"
                         />
                         <label for="file-input" class="upload-btn">
-                            📷 Add Photos
+                            ${this.icons.camera} Add Photos
                         </label>
                     </div>
                     
                     <div class="privacy-modes">
                         <button class="${this.state.privacyMode === 'auto' ? 'active' : ''}">
-                            🤖 Auto
+                            ${this.icons.robot} Auto
                         </button>
                         <button class="${this.state.privacyMode === 'show-all' ? 'active' : ''}">
-                            👁️ Show All
+                            ${this.icons.eye} Show All
                         </button>
                         <button class="${this.state.privacyMode === 'hide-all' ? 'active' : ''}">
-                            🔒 Hide Sensitive
+                            ${this.icons.eyeOff} Hide Sensitive
                         </button>
                     </div>
                 </div>
@@ -413,7 +462,7 @@ class PrivacyGallery {
                 <!-- Analysis Status -->
                 ${this.state.analyzing ? `
                     <div class="analysis-status">
-                        🔍 ${this.state.currentAnalysis}
+                        ${this.state.currentAnalysis}
                     </div>
                 ` : ''}
 
@@ -425,7 +474,7 @@ class PrivacyGallery {
                 <!-- Empty State -->
                 ${this.state.photos.length === 0 ? `
                     <div class="empty-state">
-                        <p>📷 No photos yet. Add some photos to analyze their privacy risks!</p>
+                        <p>${this.icons.camera} No photos yet. Add some photos to analyze their privacy risks!</p>
                     </div>
                 ` : ''}
             </div>
@@ -433,6 +482,24 @@ class PrivacyGallery {
     }
 
     renderPhotoCard(photo) {
+        // Render skeleton if photo is still loading
+        if (photo.skeleton) {
+            return `
+                <div class="photo-card" data-photo-id="${photo.id}">
+                    <div class="photo-wrapper">
+                        <div class="photo-skeleton skeleton"></div>
+                        <div class="skeleton-badge skeleton"></div>
+                        <div class="skeleton-button skeleton"></div>
+                    </div>
+                    <div class="photo-info">
+                        <div class="skeleton-text title skeleton"></div>
+                        <div class="skeleton-text subtitle skeleton"></div>
+                        <div class="skeleton-text description skeleton"></div>
+                    </div>
+                </div>
+            `;
+        }
+
         const shouldBlur = this.shouldBlur(photo);
         const riskColor = photo.analysis ?
             this.getRiskColor(photo.analysis.risk_level) : '#ccc';
@@ -442,7 +509,7 @@ class PrivacyGallery {
                 <div class="photo-wrapper">
                     <img src="${photo.src}" alt="${photo.name}" />
                     
-                    ${photo.loading ? `
+                    ${photo.loading && !photo.skeleton ? `
                         <div class="loading-overlay">
                             <div class="spinner"></div>
                             Analyzing...
@@ -458,7 +525,7 @@ class PrivacyGallery {
                             <button 
                                 class="protect-btn ${photo.protected ? 'active' : ''}"
                                 title="${photo.protected ? 'Unprotect' : 'Protect'}">
-                                ${photo.protected ? '🔒' : '🔓'}
+                                ${photo.protected ? this.icons.lock : this.icons.unlock}
                             </button>
                         </div>
                     ` : ''}
@@ -471,12 +538,12 @@ class PrivacyGallery {
                         </div>
                         <div class="risk-details">
                             ${photo.analysis.faces_count > 0 ? 
-                                `👤 ${photo.analysis.faces_count} face(s)` : ''}
-                            ${photo.analysis.has_documents ? '📄 Documents' : ''}
-                            ${photo.analysis.has_personal_text ? '📝 Personal text' : ''}
-                            ${photo.analysis.has_location ? '📍 Location' : ''}
-                            ${photo.analysis.has_children ? '👶 Children' : ''}
-                            ${photo.analysis.has_license_plates ? '🚗 License plates' : ''}
+                                `<span>${this.icons.user} ${photo.analysis.faces_count} face(s)</span>` : ''}
+                            ${photo.analysis.has_documents ? `<span>${this.icons.file} Documents</span>` : ''}
+                            ${photo.analysis.has_personal_text ? `<span>${this.icons.type} Personal text</span>` : ''}
+                            ${photo.analysis.has_location_data ? `<span>${this.icons.mapPin} Location</span>` : ''}
+                            ${photo.analysis.has_children ? `<span>${this.icons.baby} Children</span>` : ''}
+                            ${photo.analysis.has_license_plates ? `<span>${this.icons.car} License plates</span>` : ''}
                         </div>
                         <div class="explanation">
                             ${photo.analysis.explanation}

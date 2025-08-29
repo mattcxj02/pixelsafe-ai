@@ -41,6 +41,10 @@ def index():
 def serve_image(filename):
     return send_from_directory(IMAGE_DIR, filename)
 
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    return send_from_directory('assets', filename)
+
 @app.route('/api/images')
 def list_images():
     images = []
@@ -50,7 +54,7 @@ def list_images():
             if file.lower().endswith(('.png', '.jpg', '.jpeg')):
                 # Get the relative path from IMAGE_DIR to the file
                 relative_path = os.path.relpath(os.path.join(root, file), IMAGE_DIR)
-                images.append(relative_path.replace(os.path.sep, '/')) # Use forward slashes for URLs
+                images.append(relative_path.replace(os.path.sep, '/')) # forward slashes for URLs
     return jsonify(images)
 
 @app.route('/<path:path>')

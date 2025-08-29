@@ -93,6 +93,7 @@
     "has_children": false,
     "bounding_boxes_faces": [],
     "risk_level": "low",
+
     "action": "safe",
     "explanation": "The image contains a document with a biographical sketch and publications list, but no faces, documents, personal text, location data, or license plates are visible."
   },
@@ -158,5 +159,43 @@
     "bounding_boxes_faces": [],
     "risk_level": "low",
     "explanation": "The image shows a busy street with cars and buildings, but no faces or personal information is visible."
+  },
+  "privacy-gallery-cache-2754cec2d6cf60710ff5003a9f098fee5da37aa1116ccbc6daf55ede224059d2": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        62,
+        512,
+        252,
+        847
+      ]
+    ],
+    "risk_level": "high",
+    "explanation": "High risk due to presence of personal text and sensitive document (passport)."
+  },
+  "privacy-gallery-cache-4de4326ee5c720a621f76b9f63b438f73ad5d811e095eb3cd71f810eae2933e7": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        101,
+        653,
+        263,
+        1007
+      ]
+    ],
+    "risk_level": "high",
+    "explanation": "High risk due to presence of personal text and faces."
   }
 }

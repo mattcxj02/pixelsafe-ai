@@ -1,8 +1,8 @@
-<div align="centre">
+<div align="center">
     <img src="/assets/privacy-gallery-logo.svg" alt="AI Privacy Gallery logo" width="256" height="256">
+    <h1>AI Privacy Gallery</h1>
 </div>
 
-# AI Privacy Gallery
 Privacy Gallery demonstrates how AI can protect/analyse your sensitive photos without compromising privacy and security. Using lightweight, locally-run AI model (`Qwen2.5VL-3B`), it `detects faces, documents, and personal information` in images, processing happens on YOUR device offline, never in the cloud.
 This `proof-of-concept` combines real-time privacy risk detection with immediate protection features (blur, encrypt), showing that powerful AI assistance doesn't require sacrificing data privacy. Built with `Python/Ollama` backend and vanilla JavaScript, it's designed to run on everything from laptops to phones.
 The key innovation: True zero-trust photo protection where your images never leave your device, yet you still get intelligent privacy analysis powered by state-of-the-art AI.
