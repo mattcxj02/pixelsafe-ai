@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center; align-items: center;">
+<div align="centre">
     <img src="/assets/privacy-gallery-logo.svg" alt="AI Privacy Gallery logo" width="256" height="256">
 </div>
 
@@ -38,7 +38,7 @@ In the age of social media and cloud storage, it is easy to lose track of the se
 
 **Assets Used:**
 
-*   The project uses a set of sample images located in the `data/pictures` directory. These images are used to demonstrate the functionality of the application.
+*   The project uses a set of sample images located in the `data/pictures` and `test-images` directory. These images are used to demonstrate the functionality of the application.
 
 **Libraries Used:**
 
@@ -49,8 +49,8 @@ In the age of social media and cloud storage, it is easy to lose track of the se
 *   **JavaScript:**
     *   No external libraries are used in the frontend. The application is built using vanilla JavaScript.
 
-*   **Features:**
-  * 🛡️ Privacy Score/Analysis  
+**Features:**
+    * 🛡️ Privacy Score/Analysis  
     * 🖼️ Redaction Tools \(Blur, Encrypt\)  
     * 🤖 Local AI Inference  
     * 🔍 Identification of Sensitive Elements \(Faces, Documents, Text, Locations\)  
