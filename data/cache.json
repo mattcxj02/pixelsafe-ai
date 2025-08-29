@@ -1,248 +1,162 @@
 {
-  "privacy-gallery-cache-048bb97ea18d3264981383e9914f67b3084a255015c14c8bfcb48ac9513b5449": {
+  "privacy-gallery-cache-fcecc11c2c78004282db6c810858c0c31ef465e539429d451f78c741bf9cdc27": {
+    "privacy_score": 1,
+    "faces_count": 3,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": true,
+    "bounding_boxes_faces": [
+      [
+        262,
+        140,
+        403,
+        501
+      ],
+      [
+        366,
+        128,
+        760,
+        532
+      ],
+      [
+        408,
+        121,
+        658,
+        401
+      ]
+    ],
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a happy family in a living room with no visible private documents, location markers, or sensitive contexts. The faces are not blurred, but the privacy score is low due to the presence of children."
+  },
+  "privacy-gallery-cache-7ed0d3852e937f163aadb91e25aa319fab3659ab13bedcdc6718e2c2c5f43b15": {
+    "privacy_score": 3,
+    "faces_count": 0,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [],
+    "risk_level": "medium",
+    "action": "blur_all",
+    "explanation": "The image contains a driver's license with personal text and a blurred face. The risk level is medium due to the presence of personal text and the blurred face."
+  },
+  "privacy-gallery-cache-9e3b8403f81c4fcfb97716d8a27aa991de523328e64f39e0edc7cb0d6ed16eb2": {
     "privacy_score": 1,
     "faces_count": 0,
     "has_documents": false,
     "has_personal_text": false,
-    "has_location": false,
+    "has_location_data": false,
+    "has_license_plates": false,
     "has_children": false,
+    "bounding_boxes_faces": [],
     "risk_level": "low",
     "action": "safe",
-    "explanation": "The image shows a modern armchair with a dark background, no faces, no documents, no personal text, no location markers, and no children."
+    "explanation": "The image contains text from a scientific paper with no visible faces, documents, personal text, location markers, or license plates. The content appears to be related to scientific research and does not pose a privacy risk."
+  },
+  "privacy-gallery-cache-aa630c871103697800fe1235cb94d376d2e1c840a821d115c0fb32b567d94a15": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [],
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image contains a text document with a message and contact information, but no faces, documents, personal text, location data, or license plates are visible."
   },
   "privacy-gallery-cache-0384270da48642259672d20c10b7a499b2bfd953676d41ab22ad74d853edf58a": {
     "privacy_score": 1,
     "faces_count": 0,
     "has_documents": false,
     "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a blue sofa in a dark room with no visible faces, documents, personal text, location markers, or children. The privacy score is low."
-  },
-  "privacy-gallery-cache-2e7949f56d948d230ee4f496413ca9bf449e32737f9b3e110a85092f67b03f02": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern chair with a dark blue or teal color and a minimalist design. There are no faces, documents, personal text, location markers, or children present."
-  },
-  "privacy-gallery-cache-064e29854ed4ed80a6a1f86bc11db6452f3531b9168262f3d8e40648a6efcac8": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern bed with a wooden frame and a dark background. There are no faces, documents, personal text, location markers, or children present."
-  },
-  "privacy-gallery-cache-5dec8607f95a8705f6ba8b89f677237b07de2e0a7982a27b9886e471844ebdf5": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a dark, minimalist chair with a blurred background, indicating no privacy risks."
-  },
-  "privacy-gallery-cache-a0718e47bfe300758018bfc6d016486fe174b826a0d248712421511116a6ea3d": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern armchair with a dark background, and there are no visible faces, documents, personal text, location markers, or children."
-  },
-  "privacy-gallery-cache-5a2fb6e26e9ee8de162d6e6fadd0b1c0c94b00f9d8613f3e35ffa9c0b61c42a1": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a dark blue leather sofa against a dark background, with no visible faces, documents, personal text, location markers, or children."
-  },
-  "privacy-gallery-cache-af7c0164d397e0f52eb9b2ec0a7b9d216809df256223218dc481ed09d63ba821": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a single armchair with a dark background, and there are no visible faces, documents, personal text, location markers, or children present."
-  },
-  "privacy-gallery-cache-84652dcde2e5a2a41bd61e8172d8b2d4038be220e9ca17bc6393e963abf81a90": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a bed with a dark background, no faces, no documents, no personal text, no location markers, and no children. The bed is the main focus, and there are no signs of privacy risks."
-  },
-  "privacy-gallery-cache-cc8af7ad6dec51a5f1d78ca82cecd036e2d113ef7596b6dc165babcdfc942cff": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern chair with a dark background, no faces, documents, personal text, location markers, or children. The privacy score is low."
-  },
-  "privacy-gallery-cache-914153ec1d1c98e2778917d8867f98bf299ba88e081e704550ccf3c21ea3c412": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern armchair with a blue cushion and wooden armrests against a dark background. There are no faces, documents, personal text, location markers, or children present."
-  },
-  "privacy-gallery-cache-82689a7e6d8564a12a0360580d7c98d358f64e7697d125ac7a92717a238d03f2": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern bed with a wooden frame and a dark background. There are no faces, documents, personal text, location markers, or children visible."
-  },
-  "privacy-gallery-cache-a6111ad493e2259c017bd5dfc82e0dd5eb6b49e49e6b868e9e70bfbf1e7b1009": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a dark blue armchair against a dark background, with no visible faces, documents, personal text, location markers, or children. The image does not pose a privacy risk."
-  },
-  "privacy-gallery-cache-60083cefb3b7c91de860049deee1f9ae4c1d52b725ec9adaa1510d6d95760663": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern bed with a dark wooden frame and a black mattress. There are no visible faces, documents, personal text, location markers, or children in the image."
-  },
-  "privacy-gallery-cache-54ee0358f5e279f05459b751d922a286f2f61d487acb9d01b050f4b75329c5a0": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": false,
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a modern armchair with a dark background, no faces, no documents, no personal text, no location markers, and no children. The privacy score is low."
-  },
-  "privacy-gallery-cache-fcecc11c2c78004282db6c810858c0c31ef465e539429d451f78c741bf9cdc27": {
-    "privacy_score": 1,
-    "faces_count": 3,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location": false,
-    "has_children": true,
-    "bounding_boxes_faces": [
-      [
-        264,
-        141,
-        402,
-        502
-      ],
-      [
-        367,
-        133,
-        759,
-        532
-      ],
-      [
-        408,
-        122,
-        657,
-        401
-      ]
-    ],
-    "risk_level": "low",
-    "action": "safe",
-    "explanation": "The image shows a happy family in a living room. There are no visible documents, personal text, or location markers. The faces are not blurred or encrypted, and there are no sensitive contexts or children involved in the image."
-  },
-  "privacy-gallery-cache-7ed0d3852e937f163aadb91e25aa319fab3659ab13bedcdc6718e2c2c5f43b15": {
-    "privacy_score": 3,
-    "faces_count": 0,
-    "has_documents": true,
-    "has_personal_text": false,
-    "has_location": false,
+    "has_location_data": false,
+    "has_license_plates": false,
     "has_children": false,
     "bounding_boxes_faces": [],
-    "risk_level": "medium",
-    "action": "blur_all",
-    "explanation": "The image shows a driver's license with personal information blurred out. The license is a document that contains sensitive personal information. Blurring all the faces and personal text is necessary to protect privacy."
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a blue sofa in a dark room with no visible faces, documents, personal text, location markers, or license plates. The risk level is low."
   },
-  "privacy-gallery-cache-f8eb19a94f5e6c75b7973e2def854656b385da10a8158315a4bbcb6810d561c2": {
+  "privacy-gallery-cache-87265fd0e109e2aa40b0511dafc7313f062602f0912b86c4f641bd4c3dcce53b": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [],
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image contains a document with a biographical sketch and publications list, but no faces, documents, personal text, location data, or license plates are visible."
+  },
+  "privacy-gallery-cache-048bb97ea18d3264981383e9914f67b3084a255015c14c8bfcb48ac9513b5449": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [],
+    "risk_level": "low",
+    "action": "safe",
+    "explanation": "The image shows a modern armchair with a dark background. There are no faces, documents, personal text, location markers, or license plates visible. The image does not contain any sensitive contexts or children."
+  },
+  "privacy-gallery-cache-a066dc36cc11474ae6a749530cfda42904f01052b9ff4695e83dbdb433ba2e69": {
     "privacy_score": 4,
     "faces_count": 1,
     "has_documents": true,
     "has_personal_text": true,
     "has_location_data": false,
+    "has_license_plates": false,
     "has_children": false,
     "bounding_boxes_faces": [
       [
-        54,
-        679,
-        244,
+        65,
+        650,
+        280,
+        899
+      ]
+    ],
+    "risk_level": "high",
+    "explanation": "High risk due to presence of personal text and faces."
+  },
+  "privacy-gallery-cache-b444ac916d3875727302d73b770d7844b20ae40f89ad4a281133160c16da5f57": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        22,
+        673,
+        245,
         950
       ]
     ],
     "risk_level": "high",
-    "action": "encrypt",
-    "explanation": "The image contains a U.S. passport with personal information and a face, which poses a high risk of privacy exposure."
+    "explanation": "Passport with personal text and face visible"
   },
-  "privacy-gallery-cache-146f50788b548e63744e84ec352f0a93ba84a57201eccde501fff76dfb495e32": {
-    "privacy_score": 4,
-    "faces_count": 1,
-    "has_documents": true,
-    "has_personal_text": true,
-    "has_location_data": false,
+  "privacy-gallery-cache-75a252254b0ab33da6b4631f18a779c2095e88ccbaa8dac4cf09c7241e4dfd2e": {
+    "privacy_score": 1,
+    "faces_count": 0,
+    "has_documents": false,
+    "has_personal_text": false,
+    "has_location_data": true,
+    "has_license_plates": true,
     "has_children": false,
-    "bounding_boxes_faces": [
-      [
-        28,
-        601,
-        220,
-        910
-      ]
-    ],
-    "risk_level": "high",
-    "action": "encrypt",
-    "explanation": "The image contains a U.S. passport with personal information and a face, indicating a high risk of privacy exposure."
+    "bounding_boxes_faces": [],
+    "risk_level": "low",
+    "explanation": "The image shows a busy street with cars and buildings, but no faces or personal information is visible."
   }
 }
