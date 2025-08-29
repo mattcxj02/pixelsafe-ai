@@ -206,6 +206,43 @@
     "risk_level": "medium",
     "action": "blur_all",
     "explanation": "The image shows a driver's license with personal information blurred out. The license is a document that contains sensitive personal information. Blurring all the faces and personal text is necessary to protect privacy."
+  },
+  "privacy-gallery-cache-f8eb19a94f5e6c75b7973e2def854656b385da10a8158315a4bbcb6810d561c2": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        54,
+        679,
+        244,
+        950
+      ]
+    ],
+    "risk_level": "high",
+    "action": "encrypt",
+    "explanation": "The image contains a U.S. passport with personal information and a face, which poses a high risk of privacy exposure."
+  },
+  "privacy-gallery-cache-146f50788b548e63744e84ec352f0a93ba84a57201eccde501fff76dfb495e32": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        28,
+        601,
+        220,
+        910
+      ]
+    ],
+    "risk_level": "high",
+    "action": "encrypt",
+    "explanation": "The image contains a U.S. passport with personal information and a face, indicating a high risk of privacy exposure."
   }
-
 }

@@ -1,7 +1,22 @@
 # AI Privacy Gallery
-Privacy Gallery demonstrates how AI can protect your sensitive photos without compromising privacy. Using lightweight, locally-run AI model (Qwen2.5VL-3B), it detects faces, documents, and personal information in images—all processing happens on YOUR device, never in the cloud.
-This proof-of-concept combines real-time privacy risk detection with immediate protection features (blur, encrypt), showing that powerful AI assistance doesn't require sacrificing data privacy. Built with Python/Ollama backend and vanilla JavaScript, it's designed to run on everything from laptops to phones.
+Privacy Gallery demonstrates how AI can protect your sensitive photos without compromising privacy. Using lightweight, locally-run AI model (`Qwen2.5VL-3B`), it `detects faces, documents, and personal information` in images, processing happens on YOUR device offline, never in the cloud.
+This `proof-of-concept` combines real-time privacy risk detection with immediate protection features (blur, encrypt), showing that powerful AI assistance doesn't require sacrificing data privacy. Built with `Python/Ollama` backend and vanilla JavaScript, it's designed to run on everything from laptops to phones.
 The key innovation: True zero-trust photo protection where your images never leave your device, yet you still get intelligent privacy analysis powered by state-of-the-art AI.
+
+## **Installation/Requirements:**
+* Ollama: Follow instructions at https://ollama.com/docs/installation or:
+```bash
+pip install ollama
+```
+* Qwen2.5-VL-3B-Instruct Model: Download via Ollama with 
+```bash 
+Ollama pull qwen2.5vl:3b
+```
+* Run server.py: http://localhost:3000/
+```bash
+python server.py 
+```
+* Change and Edit images in `data/pictures` folder or Add in Image for Analysis
 
 ## **Problem Statement:**
 In the age of social media and cloud storage, it is easy to lose track of the sensitive information contained in our photos. Personal information such as faces, documents, and location data can be inadvertently shared, leading to privacy risks. This project aims to provide a tool that helps users to identify and protect their privacy by analyzing images for sensitive content and providing easy-to-use tools for redacting or protecting this information.
@@ -39,27 +54,13 @@ In the age of social media and cloud storage, it is easy to lose track of the se
     *   Bounding Boxes for Faces Location
 
 
-## **Installation/Requirements:**
-* Ollama: Follow instructions at https://ollama.com/docs/installation or:
-```bash
-pip install ollama
-```
-* Qwen2.5-VL-3B-Instruct Model: Download via Ollama with 
-```bash 
-Ollama pull qwen2.5vl:3b
-```
-* Run server.py: http://localhost:3000/
-```bash
-python server.py 
-```
-* Change and Edit images in `data/pictures` folder or Add in Image for Analysis
 
 ## **Usage Examples:**
 
 
 
 
-#### **Privacy Analysis Pipeline:**
+## **Privacy Analysis Pipeline:**
   1. Image Input [Resized for faster processing] 
 
   2. Qwen2.5vl:3b Analysis Layer via Ollama Local Inference:
@@ -73,6 +74,14 @@ python server.py
      - Store explanation for user
      - Generate privacy risk description
 
+
+## References/Data Sources:
+*   Sample/ Data [Images are Augmented/Synthetic for Privacy reasons and sourced from public datasets]:
+  * Kaggle Dataset [/test-images]:
+    * https://www.kaggle.com/datasets/tapakah68/generated-usa-passeports-dataset
+  * Istock Photos:
+    * https://www.istockphoto.com/
+    
 
 
 
