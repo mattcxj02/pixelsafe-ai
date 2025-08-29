@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="/assets/pixelsafe-ai.png" alt="AI Privacy Gallery logo" width="256" height="256">
+    <img src="/assets/pixelsafe-ai-svg.svg" alt="AI Privacy Gallery logo" width="256" height="256">
     <h1>PixelSafe AI</h1>
 </div>
 
