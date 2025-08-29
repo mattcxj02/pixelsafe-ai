@@ -419,10 +419,7 @@ class PrivacyGallery {
                 <header class="header">
                     <div class="header-top">
                         <div class="logo-container">
-                            <img src="/assets/privacy-gallery-logo.svg" alt="Privacy Gallery Logo" class="logo" />
-                        </div>
-                        <div class="header-text">
-                            <h1>AI Privacy Gallery</h1>
+                            <img src="/assets/pixelsafe-ai.png" alt="PixelSafe AI Logo" class="logo" />
                         </div>
                     </div>
                     <div class="stats-bar">
