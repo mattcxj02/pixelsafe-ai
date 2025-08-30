@@ -159,7 +159,7 @@
     "risk_level": "low",
     "explanation": "The image shows a busy street with cars and buildings, but no faces or personal information is visible."
   },
-  "privacy-gallery-cache-2754cec2d6cf60710ff5003a9f098fee5da37aa1116ccbc6daf55ede224059d2": {
+  "privacy-gallery-cache-6b345c302bda3cc569826c9da1cecdca4c27d5055b0a6cae70ebb120b5c96a36": {
     "privacy_score": 4,
     "faces_count": 1,
     "has_documents": true,
@@ -169,10 +169,29 @@
     "has_children": false,
     "bounding_boxes_faces": [
       [
-        62,
-        512,
-        252,
-        847
+        29,
+        617,
+        221,
+        871
+      ]
+    ],
+    "risk_level": "high",
+    "explanation": "High risk due to presence of personal text and faces."
+  },
+  "privacy-gallery-cache-169d979795d34bc996d0ac1f0fc6ec9954dc49073ca450563ed497bf135ca936": {
+    "privacy_score": 4,
+    "faces_count": 1,
+    "has_documents": true,
+    "has_personal_text": true,
+    "has_location_data": false,
+    "has_license_plates": false,
+    "has_children": false,
+    "bounding_boxes_faces": [
+      [
+        24,
+        649,
+        214,
+        889
       ]
     ],
     "risk_level": "high",

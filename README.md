@@ -61,20 +61,20 @@ In the age of social media and cloud storage, it is easy to lose track of the se
 
 ## **Privacy Analysis Pipeline:**
 
-1. Image Analysis and Upload Layer:
+* **Image Analysis and Upload Layer:**
 ![image](assets/home_page.png)
    * Upload an image to the application.
    * The AI model analyzes the image for sensitive content.
    * A privacy score is generated based on the detected elements.
 
-2. Qwen2.5vl:3b Analysis Layer via Ollama:
+* **Qwen2.5vl:3b Analysis Layer via Ollama:**
 ![image](assets/prompt.png)
    * Detects sensitive elements (faces, documents, text, locations)
    * Assigns privacy score 
    * Suggests redaction strategy 
    * Provides Bounding Boxes for faces location
 
-3. JSON Response and Action Layer:
+* **JSON Response and Action Layer:**
 ![image](assets/json_response.png)
    * Auto-blur/encrypt based on score
    * Store explanation for user
