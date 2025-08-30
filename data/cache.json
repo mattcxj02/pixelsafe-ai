@@ -177,48 +177,5 @@
     ],
     "risk_level": "high",
     "explanation": "High risk due to presence of personal text and sensitive document (passport)."
-  },
-  "privacy-gallery-cache-4de4326ee5c720a621f76b9f63b438f73ad5d811e095eb3cd71f810eae2933e7": {
-    "privacy_score": 4,
-    "faces_count": 1,
-    "has_documents": true,
-    "has_personal_text": true,
-    "has_location_data": false,
-    "has_license_plates": false,
-    "has_children": false,
-    "bounding_boxes_faces": [
-      [
-        101,
-        653,
-        263,
-        1007
-      ]
-    ],
-    "risk_level": "high",
-    "explanation": "High risk due to presence of personal text and faces."
-  },
-  "privacy-gallery-cache-7ad5e4c879129a4841559043f39d5f8bcfdaa4225db567bfc93d001d24eac11d": {
-    "privacy_score": 2,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location_data": false,
-    "has_license_plates": true,
-    "has_children": false,
-    "bounding_boxes_faces": [],
-    "risk_level": "medium",
-    "explanation": "The image shows a parking lot with cars and a building in the background. There are no visible faces or personal documents. The risk level is medium due to the presence of license plates, which could potentially contain private information."
-  },
-  "privacy-gallery-cache-c13fb3c9214cc9e7cab4d77b9deef6ccbdc67375d90ea89ab8294a5fd0fef62e": {
-    "privacy_score": 1,
-    "faces_count": 0,
-    "has_documents": false,
-    "has_personal_text": false,
-    "has_location_data": false,
-    "has_license_plates": true,
-    "has_children": false,
-    "bounding_boxes_faces": [],
-    "risk_level": "low",
-    "explanation": "The image shows a parked car with a visible license plate. There are no faces, documents, personal text, or location markers present."
   }
 }
