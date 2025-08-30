@@ -1,11 +1,10 @@
 <div align="center">
     <img src="/assets/pixelsafe-ai-svg.svg" alt="AI Privacy Gallery logo" width="256" height="256">
-    <h1>PixelSafe AI</h1>
 </div>
 
-PixelSafe Gallery demonstrates how AI can protect/analyse your sensitive photos without compromising privacy and security. Using lightweight, locally-run AI model (`Qwen2.5VL-3B`), it `detects faces, documents, and personal information` in images, processing happens on YOUR device offline, never in the cloud.
+PixelSafe AI Gallery demonstrates how AI can protect/analyse your sensitive photos without compromising privacy and security. Using lightweight, locally-run AI model (`Qwen2.5VL-3B`), it `detects faces, documents, and personal information` in images, processing happens on YOUR device offline, never in the cloud.
 
-This `proof-of-concept` combines real-time privacy risk detection with immediate protection features (blur, encrypt), showing that powerful AI assistance doesn't require sacrificing data privacy. Built with `Python/Ollama` backend and vanilla JavaScript, it's designed to run on everything from laptops to phones.
+This `proof-of-concept` idea combines real-time privacy risk detection with immediate protection features (blur, encrypt), showing that powerful AI assistance doesn't require sacrificing data privacy. Built with `Python/Ollama` backend and vanilla JavaScript, it's designed to run on everything from laptops to phones.
 The key innovation: True zero-trust photo protection where your images never leave your device, yet you still get intelligent privacy analysis powered by state-of-the-art AI.
 
 ## **Installation/Requirements:**
@@ -60,37 +59,28 @@ In the age of social media and cloud storage, it is easy to lose track of the se
     * 🟦 Bounding Boxes for Faces Location
 
 
-
-## **Usage Examples:**
-
-**Image Analysis:**
-<br>
-   ![Image Analysis Example](assets/home_page.png)
-<br>
+## **Privacy Analysis Pipeline:**
+  1. Image Input [Resized for faster processing]:
+<div align="center">
+    <img src="assets/home_page.png">
+</div>
    - Upload an image to the application.
    - The AI model analyzes the image for sensitive content.
    - A privacy score is generated based on the detected elements.
 
-**Prompt**
-<br>
-   ![Image Analysis Example](assets/prompt.png)
-<br>
-
-**JSON Response for analyses**
-<br>
-   ![Image Analysis Example](assets/json_response.png)
-<br>
-
-## **Privacy Analysis Pipeline:**
-  1. Image Input [Resized for faster processing] 
-
   2. Qwen2.5vl:3b Analysis Layer via Ollama Local Inference:
+<div align="center">
+    <img src="assets/prompt.png">
+</div>
      - Detects sensitive elements (faces, documents, text, locations)
      - Assigns privacy score
      - Suggests redaction strategy
      - Provides Bounding Boxes for faces location
   
-  3. Action Layer:
+  3. JSON Response and Action Layer:
+<div align="center">
+    <img src="assets/json_response.png">
+</div>
      - Auto-blur/encrypt based on score
      - Store explanation for user
      - Generate privacy risk description
